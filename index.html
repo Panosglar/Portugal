@@ -1,0 +1,394 @@
+﻿<!DOCTYPE html>
+<html lang='el'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Portugal 2026 &middot; Οδοιπορικό</title><style>:root{--g:#046A38;--r:#C8102E;--y:#FFD200;--b:#1d4f91;--ink:#1f2328;--paper:#fbf8f2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.45}
+h1,h2,h3,h4{font-family:Georgia,"Times New Roman",serif;margin:0}
+a{color:var(--b)}
+.flag{height:8px;background:linear-gradient(90deg,var(--g) 0 40%,var(--y) 40% 44%,var(--r) 44% 100%)}
+.tiles{position:absolute;inset:0;opacity:.13;background-color:transparent;background-image:radial-gradient(circle at center,#fff 0 18%,transparent 19%),radial-gradient(circle at center,transparent 0 38%,#fff 39% 43%,transparent 44%),linear-gradient(45deg,transparent 46%,#fff 47% 53%,transparent 54%),linear-gradient(-45deg,transparent 46%,#fff 47% 53%,transparent 54%);background-size:46px 46px;pointer-events:none}
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 2px 8px #0002}
+.bar{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:8px 16px}
+.brand{font-family:Georgia,serif;font-weight:700;color:var(--r);font-size:20px;white-space:nowrap}
+.brand span{color:var(--g)}
+.days{display:flex;gap:6px;overflow-x:auto;flex:1}
+.days a{display:flex;flex-direction:column;align-items:center;min-width:46px;padding:4px 6px;border-radius:10px;text-decoration:none;color:var(--ink);border:1px solid #e3ddd0;background:var(--paper);font-size:11px}
+.days a b{font-size:16px;color:var(--g)}
+.days a:hover{background:var(--y)}
+.links a{font-size:14px;margin-left:10px;text-decoration:none;font-weight:600}
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(120deg,var(--g) 0%,#0b6d3d 45%,var(--r) 100%)}
+.hero .in{position:relative;max-width:1200px;margin:0 auto;padding:46px 20px 40px;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+.kicker{display:inline-block;background:var(--y);color:#222;font-weight:700;padding:4px 12px;border-radius:20px;font-size:13px;letter-spacing:.5px}
+.hero h1{font-size:52px;margin:12px 0 6px;text-shadow:0 2px 6px #0004}
+.hero .sub{font-size:19px;opacity:.95}
+.stats{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.stats div{background:#ffffff22;border:1px solid #ffffff55;border-radius:14px;padding:10px 16px;min-width:110px}
+.stats b{display:block;font-size:26px;font-family:Georgia,serif}
+.stats span{font-size:13px;opacity:.9}
+.dialog{margin-top:22px;display:grid;gap:8px;max-width:520px}
+.dialog div{padding:10px 14px;border-radius:16px;font-size:16px}
+.dialog small{display:block;opacity:.8;font-size:13px}
+.dialog .q{background:#fff;color:#222;border-bottom-left-radius:4px}
+.dialog .a{background:var(--y);color:#222;justify-self:end;border-bottom-right-radius:4px}
+.hero .art{background:#ffffff1f;border-radius:24px;padding:16px}
+.hero svg{width:100%;height:auto}
+.hero .cta{display:inline-block;margin-top:20px;background:#fff;color:var(--r);font-weight:700;padding:10px 20px;border-radius:24px;text-decoration:none}
+/* day */
+main{max-width:1200px;margin:0 auto;padding:10px 16px 40px}
+.day{background:#fff;border-radius:20px;box-shadow:0 6px 24px #0000001a;margin:34px 0;overflow:hidden;scroll-margin-top:80px}
+.banner{position:relative;color:#fff;display:grid;grid-template-columns:1fr 260px;align-items:center;padding:22px 28px;min-height:170px}
+.btxt{position:relative}
+.dnum{display:inline-block;background:#00000033;padding:3px 12px;border-radius:14px;font-size:13px;letter-spacing:.4px}
+.banner h2{font-size:32px;margin:8px 0 4px}
+.route{opacity:.95}
+.art{position:relative;background:#ffffff26;border-radius:18px;padding:8px}
+.art svg{width:100%;height:auto;display:block}
+.facts{display:flex;flex-wrap:wrap;gap:8px;padding:14px 24px;border-bottom:1px dashed #e3ddd0;background:#fffdf7}
+.facts span{background:#fff;border:1px solid #e9e2d2;border-radius:20px;padding:5px 12px;font-size:14px}
+.cols{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;padding:20px 24px 26px}
+.cols h3{color:var(--g);font-size:22px;margin-bottom:10px}
+.tl{list-style:none;margin:0;padding:0;border-left:3px solid #e9e2d2;margin-left:58px}
+.tl li{position:relative;display:grid;grid-template-columns:0 1fr;padding:6px 0 12px 18px}
+.tl li::before{content:"";position:absolute;left:-9px;top:12px;width:14px;height:14px;border-radius:50%;background:var(--g);border:2px solid #fff;box-shadow:0 0 0 2px var(--g)}
+.tl li.opt::before{background:#f3a649;box-shadow:0 0 0 2px #f3a649}
+.tm{position:absolute;left:-70px;top:8px;width:56px;text-align:right;font-size:13px;font-weight:700;color:#555}
+.bd{background:#f3fbf4;border:1px solid #d5ecd8;border-radius:12px;padding:9px 12px}
+.opt .bd{background:#fff6ea;border-color:#f6dfbf}
+.wh{font-weight:600}
+.chip{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:10px;background:var(--g);color:#fff;vertical-align:middle;margin-left:4px}
+.opt .chip{background:#e88a1a}
+.pin{display:inline-block;margin-top:4px;font-size:13px;text-decoration:none}
+.nt{font-size:13px;color:#555;margin-top:3px}
+aside .box{border-radius:14px;padding:12px 14px;margin-bottom:14px}
+aside h4{font-size:16px;margin-bottom:8px}
+aside ul{margin:0;padding-left:18px}aside li{margin:4px 0}
+.phrase{background:linear-gradient(135deg,#fff7cc,#ffe98a);border:1px solid #f2d54a}
+.phrase .pt{font-family:Georgia,serif;font-size:20px;font-style:italic;color:#7a1a10}
+.phrase .pr{font-size:13px;color:#555;margin:2px 0 6px}
+.phrase .gr{font-size:15px}
+.ticket{background:#eef4ff;border:1px dashed #8fb0e6}
+.ticket span{font-size:13px;color:#444}
+.warn{background:#fff1f0;border:1px solid #f4c4bf}
+/* summary + general */
+.panel{background:#fff;border-radius:20px;box-shadow:0 6px 24px #0000001a;padding:24px;margin:34px 0;scroll-margin-top:80px}
+.panel h2{color:var(--r);font-size:28px;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--g);color:#fff;text-align:left;padding:9px}
+td{padding:9px;border-bottom:1px solid #eee5d3;vertical-align:top}
+tr:nth-child(even) td{background:#fcfaf5}
+td.n{font-weight:700;color:var(--g);font-size:16px}
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.gcard{border:1px solid #eee5d3;border-radius:14px;padding:14px;background:#fffdf7}
+.gcard h4{color:var(--g);margin-bottom:8px}
+dl{margin:0}dt{font-weight:700;font-size:14px;margin-top:6px}dd{margin:0 0 4px;font-size:14px}
+.ptc{font-family:Georgia,serif;font-style:italic;color:#7a1a10;font-size:16px}
+.prc{color:#555}
+footer{position:relative;overflow:hidden;text-align:center;color:#fff;background:linear-gradient(120deg,var(--r),var(--g));padding:36px 16px}
+footer h2{font-size:34px}footer p{opacity:.9;margin:6px 0 0}
+@media (max-width:900px){.hero .in,.banner,.cols{grid-template-columns:1fr}.hero h1{font-size:38px}}
+/* v2 overrides */
+body{background:#f4efe4 repeating-linear-gradient(45deg,transparent 0 22px,#1d4f9108 22px 24px)}
+.flag{height:10px}.flag.big{height:14px}
+.hero{background:linear-gradient(100deg,rgba(4,106,56,.93) 0%,rgba(4,106,56,.75) 40%,rgba(200,16,46,.55) 75%,rgba(200,16,46,.85) 100%),url('img/hero.jpg') center/cover}
+.hero .in{grid-template-columns:1fr;min-height:520px;padding:60px 20px}
+.hero h1{font-size:64px}
+.banner{grid-template-columns:1fr;min-height:300px;align-items:end;padding:28px 32px}
+.banner h2{font-size:42px;text-shadow:0 2px 8px #0007}
+.route{font-size:17px;text-shadow:0 1px 4px #0008}
+.dnum{background:var(--y);color:#222;font-weight:700}
+.tl li{display:block}
+.tl{margin-left:70px}
+.tm{left:-84px;width:62px}
+.facts{background:#046A38;border:0}
+.facts span{background:#ffffff1a;border-color:#ffffff40;color:#fff}
+.cols h3{color:var(--r);border-bottom:3px solid var(--y);display:inline-block;padding-bottom:2px}
+.day{border-top:6px solid var(--r)}.day:nth-of-type(odd){border-top-color:var(--g)}
+th{background:var(--r)}
+.cintro{color:#555;margin:-6px 0 14px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi{background:#fffdf7;border:1px solid #eee5d3;border-radius:14px;padding:12px 16px}
+.kpi span{display:block;font-size:13px;color:#555}.kpi b{font-family:Georgia,serif;font-size:26px;color:var(--g)}.kpi small{display:block;font-size:12px;color:#777}
+.kpi.main{background:linear-gradient(120deg,var(--g),#0b8f4f);border:0;color:#fff}.kpi.main span{color:#e6f5ec}.kpi.main b{color:var(--y);font-size:32px}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cbox h3{font-size:19px;color:var(--r);margin-bottom:8px}.cbox h3 small{font-size:13px;color:#777;font-family:"Segoe UI",sans-serif}
+.ci{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:10px;border-left:4px solid var(--g);background:#f3fbf4;margin-bottom:8px}
+.ci.opt{border-left-color:#e88a1a;background:#fff6ea}
+.ct{font-weight:600}.qty{font-size:12px;color:#666}.cn{font-size:12.5px;color:#666;margin-top:2px}
+.ca{text-align:right;font-weight:700;font-size:17px;white-space:nowrap}.per{display:block;font-weight:400;font-size:12px;color:#666}
+.cfoot{font-size:12.5px;color:#777;margin:12px 0 0}
+@media (max-width:900px){.kpis{grid-template-columns:1fr 1fr}.cgrid{grid-template-columns:1fr}}
+/* compact + one day at a time */
+.cwrap{overflow-x:auto}.cost td{white-space:normal}.cost tr.cr td{background-clip:padding-box}
+.cost tr.cr:not([style]):nth-child(even) td{background:#fcfaf5}.cost tr[style] td{background:transparent}
+.hero .in{min-height:0;padding:26px 20px}
+.hero h1{font-size:40px;margin:8px 0 4px}.hero .sub{font-size:16px}
+.stats{margin-top:12px}.stats div{padding:6px 12px}.stats b{font-size:20px}
+.dialog{margin-top:12px}.dialog div{padding:6px 12px;font-size:14px}
+.hero .cta{display:none}
+.banner{min-height:150px;padding:16px 24px}
+.banner h2{font-size:30px;margin:6px 0 2px}.route{font-size:15px}
+.facts{padding:10px 20px}
+.cols{padding:16px 20px 18px}
+.day,.panel{margin:18px 0}
+.js .day,.js .panel{display:none}.js .day.show,.js .panel.show{display:block}
+.pager{display:flex;justify-content:space-between;padding:0 20px 18px}
+.pager a{background:var(--g);color:#fff;text-decoration:none;padding:8px 16px;border-radius:20px;font-weight:600}
+.pager a.prev{background:var(--r)}
+.links a.on{color:var(--r);text-decoration:underline}
+.days a.on,.days a:hover{background:var(--g);color:#fff}.days a:hover b{color:var(--y)}
+/* ===== mobile ===== */
+@media (max-width:700px){
+  body{font-size:15px}
+  .bar{flex-wrap:wrap;gap:6px;padding:6px 10px}
+  .brand{font-size:17px}
+  .links{margin-left:auto}.links a{font-size:13px;margin-left:8px}
+  .days{order:3;flex-basis:100%;padding-bottom:4px;scrollbar-width:none}.days::-webkit-scrollbar{display:none}
+  .days a{min-width:44px;padding:5px 4px}
+  .hero .in{padding:18px 14px}
+  .hero h1{font-size:30px}.hero .sub{font-size:14px}
+  .kicker{font-size:11px}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stats div{min-width:0}.stats b{font-size:18px}.stats span{font-size:12px}
+  .dialog div{font-size:13px}
+  main{padding:4px 8px 24px}
+  .day,.panel{margin:10px 0;border-radius:14px}
+  .banner{min-height:150px;padding:14px 16px}
+  .banner h2{font-size:24px}.route{font-size:13px}.dnum{font-size:12px}
+  .facts{padding:8px 10px;gap:6px}.facts span{font-size:12.5px;padding:4px 9px}
+  .cols{padding:12px 12px 14px;gap:14px}
+  .cols h3{font-size:19px}
+  .tl{margin-left:0;border-left:0}
+  .tl li{padding:0 0 10px 0}
+  .tl li::before{display:none}
+  .tm{position:static;width:auto;text-align:left;display:inline-block;background:var(--g);color:#fff;border-radius:8px;padding:1px 8px;margin-bottom:4px;font-size:12px}
+  .opt .tm{background:#e88a1a}
+  .bd{padding:10px 12px}
+  .pin{display:block;padding:6px 0;font-size:14px}
+  .phrase .pt{font-size:18px}
+  .pager{padding:0 12px 14px;gap:8px}.pager a{flex:1;text-align:center;padding:12px 10px}
+  .panel{padding:14px}.panel h2{font-size:22px}
+  table{font-size:13px}
+  #summary table{display:block;overflow-x:auto}
+  .ggrid{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr;gap:8px}.kpi{padding:10px}.kpi b{font-size:20px}.kpi.main{grid-column:1/-1}.kpi.main b{font-size:28px}
+  .ci{flex-direction:column;gap:4px}.ca{text-align:left}
+  footer{padding:22px 12px}footer h2{font-size:26px}
+}</style></head>
+<body id='top'>
+<div class='top'><div class='flag'></div><div class='bar'>
+  <div class='brand'>Portugal <span>2026</span></div>
+  <nav class='days'><a href='#day1'><b>1</b><span>Σαβ</span></a><a href='#day2'><b>2</b><span>Κυρ</span></a><a href='#day3'><b>3</b><span>Δευ</span></a><a href='#day4'><b>4</b><span>Τρι</span></a><a href='#day5'><b>5</b><span>Τετ</span></a><a href='#day6'><b>6</b><span>Πεμ</span></a><a href='#day7'><b>7</b><span>Παρ</span></a><a href='#day8'><b>8</b><span>Σαβ</span></a><a href='#day9'><b>9</b><span>Κυρ</span></a><a href='#day10'><b>10</b><span>Δευ</span></a><a href='#day11'><b>11</b><span>Τρι</span></a><a href='#day12'><b>12</b><span>Τετ</span></a></nav>
+  <div class='links'><a href='#summary'>Σύνοψη</a><a href='#cost'>Κόστος</a><a href='#general'>Γενικά</a><a href='#phrases'>Φράσεις</a></div>
+</div></div>
+
+<header class='hero'><div class='tiles'></div><div class='in'>
+  <div>
+    <span class='kicker'>ΟΔΟΙΠΟΡΙΚΟ ΜΕ ΤΡΟΧΟΣΠΙΤΟ</span>
+    <h1>Πορτογαλία 2026</h1>
+    <div class='sub'>Από τη Λισαβόνα στο Πόρτο, στους αμπελώνες του Douro, στα κάστρα της ενδοχώρας και στις σπηλιές του Algarve.</div>
+    <div class='stats'><div><b>12</b><span>μέρες &middot; 17&ndash;28/10</span></div><div><b>1.780</b><span>χιλιόμετρα</span></div><div><b>23,5</b><span>ώρες οδήγησης</span></div><div><b>3</b><span>ταξιδιώτες</span></div></div>
+    <div class='dialog'><div class='q'>&laquo;Fala portugu&#234;s?&raquo; <small>Μιλάς πορτογαλικά;</small></div><div class='a'>&laquo;N&#227;o, mas falo com as m&#227;os!&raquo; <small>Όχι, αλλά μιλάω με τα χέρια!</small></div></div>
+    <a class='cta' href='#day1'>Ξεκινάμε &rarr;</a>
+  </div>
+</div></header>
+<div class='flag big'></div>
+
+<main>
+<section class='day' id='day1'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(4,106,56,.88) 0%,rgba(4,106,56,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day1.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 1 &middot; Σαβ 17/10</div><h2>Λισαβόνα</h2><div class='route'>Άφιξη - Λισαβόνα με τα πόδια</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 0 km</span><span>&#9201;&#65039; 0 ώρες οδήγηση</span><span>&#128719;&#65039; Δωμάτιο Rua da Luz Soriano 27 (Bairro Alto)</span><span>&#127381; -</span><span>&#127749; Δύση ~19:05</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='sure'><div class='tm'>07:00</div><div class='bd'><div class='wh'>Άφιξη - αφήνουμε βαλίτσες στο δωμάτιο <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Rua%20da%20Luz%20Soriano%2027%2C%20Lisboa%2C%20Portugal'>&#128205; Rua da Luz Soriano 27, Lisboa</a></div></li><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Baixa - Rua Augusta - Pra&#231;a do Com&#233;rcio <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Pra%C3%A7a%20do%20Com%C3%A9rcio%2C%20Lisboa%2C%20Portugal'>&#128205; Pra&#231;a do Com&#233;rcio, Lisboa</a><div class='nt'>Μεγάλη πλατεία στο ποτάμι</div></div></li><li class='sure'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>Carmo, Elevador de Santa Justa (θέα από πάνω), A Brasileira <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Largo%20do%20Carmo%2C%20Lisboa%2C%20Portugal'>&#128205; Largo do Carmo, Lisboa</a><div class='nt'>Το ασανσέρ έχει ουρά - θέα από το Carmo</div></div></li><li class='sure'><div class='tm'>Απόγευμα</div><div class='bd'><div class='wh'>Κάρτα Navegante για μετρό/τραμ <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Baixa-Chiado%2C%20Lisboa%2C%20Portugal'>&#128205; Baixa-Chiado, Lisboa</a><div class='nt'>Από μηχάνημα στο μετρό</div></div></li><li class='sure'><div class='tm'>~18:30</div><div class='bd'><div class='wh'>Ηλιοβασίλεμα: Park Bar ή Miradouro de Santa Catarina <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Park%20Bar%2C%20Cal%C3%A7ada%20do%20Combro%2C%20Lisboa%2C%20Portugal'>&#128205; Park Bar, Cal&#231;ada do Combro, Lisboa</a></div></li><li class='sure'><div class='tm'>Βράδυ</div><div class='bd'><div class='wh'>Φαγητό Bairro Alto → fado στην Tasca do Chico <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Tasca%20do%20Chico%2C%20Lisboa%2C%20Portugal'>&#128205; Tasca do Chico, Lisboa</a><div class='nt'>Πάτε νωρίς, αλλιώς ουρά</div></div></li><li class='sure'><div class='tm'>Αργά</div><div class='bd'><div class='wh'>Στενά Bairro Alto → Pink Street (μετά τις 01:00) <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Rua%20Nova%20do%20Carvalho%2C%20Lisboa%2C%20Portugal'>&#128205; Rua Nova do Carvalho, Lisboa</a><div class='nt'>Επιστροφή: Elevador da Bica ή Uber 5&#39;</div></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Miradouro da Senhora do Monte <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Miradouro%20da%20Senhora%20do%20Monte%2C%20Lisboa%2C%20Portugal'>&#128205; Miradouro da Senhora do Monte, Lisboa</a><div class='nt'>Η ψηλότερη θέα</div></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;Ol&#225;! Uma cerveja, por favor.&raquo;</div><div class='pr'>Ολά! Ούμα σερβέζα, πουρ φαβόρ.</div><div class='gr'>Γεια! Μια μπίρα, παρακαλώ.</div></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Στο Bairro Alto θα σας προσφέρουν &#171;hashish&#187; - συνήθως ψεύτικο, αγνοήστε.</li><li>Πορτοφόλια στα γεμάτα στενά και στο τραμ.</li></ul></div></aside>
+  </div>
+  <div class='pager'><span></span><a href='#day2'>Ημέρα 2 &rarr;</a></div>
+</section><section class='day' id='day2'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(200,16,46,.88) 0%,rgba(200,16,46,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day2.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 2 &middot; Κυρ 18/10</div><h2>Λισαβόνα - Μπελέμ</h2><div class='route'>Λισαβόνα (Uber / tram 15E)</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 0 km</span><span>&#9201;&#65039; 0 ώρες οδήγηση</span><span>&#128719;&#65039; Δωμάτιο Rua da Luz Soriano 27 (Bairro Alto)</span><span>&#127381; -</span><span>&#127749; Δύση ~19:03</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>LX Factory - μαγαζιά, βιβλιοπωλείο, καφές <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=LX%20Factory%2C%20Lisboa%2C%20Portugal'>&#128205; LX Factory, Lisboa</a><div class='nt'>Uber 10&#39;</div></div></li><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Μπελέμ: Μονή Ιερώνυμου, Πύργος, Μνημείο Ανακαλύψεων <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Mosteiro%20dos%20Jer%C3%B3nimos%2C%20Lisboa%2C%20Portugal'>&#128205; Mosteiro dos Jer&#243;nimos, Lisboa</a><div class='nt'>Εισιτήριο online</div></div></li><li class='sure'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>Past&#233;is de Bel&#233;m <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Past%C3%A9is%20de%20Bel%C3%A9m%2C%20Lisboa%2C%20Portugal'>&#128205; Past&#233;is de Bel&#233;m, Lisboa</a></div></li><li class='sure'><div class='tm'>Απόγευμα</div><div class='bd'><div class='wh'>Κάστρο Αγ. Γεωργίου, Καθεδρικός <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Castelo%20de%20S%C3%A3o%20Jorge%2C%20Lisboa%2C%20Portugal'>&#128205; Castelo de S&#227;o Jorge, Lisboa</a></div></li><li class='sure'><div class='tm'>Ηλιοβασίλεμα</div><div class='bd'><div class='wh'>Miradouro S&#227;o Pedro de Alc&#226;ntara <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Miradouro%20de%20S%C3%A3o%20Pedro%20de%20Alc%C3%A2ntara%2C%20Lisboa%2C%20Portugal'>&#128205; Miradouro de S&#227;o Pedro de Alc&#226;ntara, Lisboa</a><div class='nt'>Καντινάκι για ποτό</div></div></li><li class='sure'><div class='tm'>Βράδυ</div><div class='bd'><div class='wh'>Pavilh&#227;o Chin&#234;s / Cinco Lounge (Pr&#237;ncipe Real) <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Pavilh%C3%A3o%20Chin%C3%AAs%2C%20Lisboa%2C%20Portugal'>&#128205; Pavilh&#227;o Chin&#234;s, Lisboa</a><div class='nt'>Πιο χαλαρά - αύριο τροχόσπιτο</div></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;Mais um pastel de nata, por favor!&raquo;</div><div class='pr'>Μάις ουμ παστέλ ντε νάτα, πουρ φαβόρ!</div><div class='gr'>Άλλο ένα pastel de nata, παρακαλώ! (το τρίτο σήμερα)</div></div><div class='box ticket'><h4>&#127903; Κρατήσεις &amp; εισιτήρια</h4><ul><li><b>Μονή Ιερώνυμου + Πύργος Μπελέμ</b><br><span>Πρωί &middot; Επίσημο site (Museus e Monumentos de Portugal) &middot; 25 &euro;</span></li></ul></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Τη Δευτέρα πολλά μνημεία είναι κλειστά - γι&#39; αυτό το Μπελέμ σήμερα.</li></ul></div></aside>
+  </div>
+  <div class='pager'><a class='prev' href='#day1'>&larr; Ημέρα 1</a><a href='#day3'>Ημέρα 3 &rarr;</a></div>
+</section><section class='day' id='day3'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(4,106,56,.88) 0%,rgba(4,106,56,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day3.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 3 &middot; Δευ 19/10</div><h2>Λισαβόνα → McRent → Cabo da Roca → Ναζαρέ</h2><div class='route'>Λισαβόνα → McRent → Cabo da Roca → Όμπιδος → Ναζαρέ</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 100 km</span><span>&#9201;&#65039; 1,75 ώρες οδήγηση</span><span>&#128719;&#65039; Ναζαρέ (S&#237;tio / Φάρος)</span><span>&#127381; Όχι - επί πληρωμή (ακτή)</span><span>&#127749; Δύση ~19:01</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='sure'><div class='tm'>08:30</div><div class='bd'><div class='wh'>Τραμ 28 από την αφετηρία Martim Moniz <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Martim%20Moniz%2C%20Lisboa%2C%20Portugal'>&#128205; Martim Moniz, Lisboa</a><div class='nt'>Μετά γεμίζει</div></div></li><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Alfama: Miradouro de Santa Luzia, Portas do Sol <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Miradouro%20de%20Santa%20Luzia%2C%20Lisboa%2C%20Portugal'>&#128205; Miradouro de Santa Luzia, Lisboa</a></div></li><li class='sure'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>Time Out Market <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Time%20Out%20Market%2C%20Lisboa%2C%20Portugal'>&#128205; Time Out Market, Lisboa</a></div></li><li class='sure'><div class='tm'>~14:00</div><div class='bd'><div class='wh'>Uber με βαλίτσες στη McRent (30-40&#39;) <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=McRent%20Lisboa%2C%20Sintra%2C%20Portugal'>&#128205; McRent Lisboa, Sintra</a></div></li><li class='sure'><div class='tm'>15:00-15:30</div><div class='bd'><div class='wh'>Παραλαβή τροχόσπιτου <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=McRent%20Lisboa%2C%20Sintra%2C%20Portugal'>&#128205; McRent Lisboa, Sintra</a><div class='nt'>Ρωτήστε: Via Verde, όροι παράδοσης, χρεώσεις, αν κρατάνε βαλίτσες στις 28</div></div></li><li class='sure'><div class='tm'>Μετά</div><div class='bd'><div class='wh'>Σούπερ μάρκετ - ψώνια <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Continente%2C%20Sintra%2C%20Portugal'>&#128205; Continente, Sintra</a></div></li><li class='sure'><div class='tm'>18:00</div><div class='bd'><div class='wh'>Cabo da Roca - δυτικότερο σημείο Ευρώπης, ηλιοβασίλεμα <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Cabo%20da%20Roca%2C%20Portugal'>&#128205; Cabo da Roca</a></div></li><li class='sure'><div class='tm'>Βράδυ</div><div class='bd'><div class='wh'>Όμπιδος - βραδινό, ginjinha <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=%C3%93bidos%2C%20Portugal'>&#128205; &#211;bidos</a></div></li><li class='sure'><div class='tm'>~21:30</div><div class='bd'><div class='wh'>Ναζαρέ - ύπνος <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Nazar%C3%A9%2C%20S%C3%ADtio%2C%20Portugal'>&#128205; Nazar&#233;, S&#237;tio</a></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;Onde est&#227;o as ondas gigantes?&raquo;</div><div class='pr'>Όντ&#39; στάουν ας όνταζ ζιγκάντς;</div><div class='gr'>Πού είναι τα γιγάντια κύματα;</div></div><div class='box ticket'><h4>&#127903; Κρατήσεις &amp; εισιτήρια</h4><ul><li><b>Camping / ASA Ναζαρέ</b><br><span>Βράδυ &middot; Site camping ή park4night &middot; ~30 € (κοινό) &euro;</span></li><li><b>Συσκευή Via Verde</b><br><span>15:00 &middot; Στην παραλαβή McRent &middot; - &euro;</span></li></ul></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Πρώτη οδήγηση τροχόσπιτου και στο σκοτάδι - ήρεμα.</li><li>Στη Ναζαρέ όχι ελεύθερο κάμπινγκ (ακτή) - μόνο camping ή ASA.</li></ul></div></aside>
+  </div>
+  <div class='pager'><a class='prev' href='#day2'>&larr; Ημέρα 2</a><a href='#day4'>Ημέρα 4 &rarr;</a></div>
+</section><section class='day' id='day4'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(200,16,46,.88) 0%,rgba(200,16,46,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day4.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 4 &middot; Τρι 20/10</div><h2>Ναζαρέ → Κοΐμπρα → Αβέιρο → Πόρτο</h2><div class='route'>Ναζαρέ → Κοΐμπρα → Αβέιρο → Πόρτο</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 240 km</span><span>&#9201;&#65039; 3,5 ώρες οδήγηση</span><span>&#128719;&#65039; Πόρτο - camping Orbitur Angeiras</span><span>&#127381; Όχι - camping (ασφάλεια + μετρό)</span><span>&#127749; Δύση ~18:57</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Φάρος Ναζαρέ - τα μεγάλα κύματα <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Farol%20da%20Nazar%C3%A9%2C%20Portugal'>&#128205; Farol da Nazar&#233;</a><div class='nt'>Πρόγνωση κυμάτων: surfline / windy</div></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Batalha - μοναστήρι UNESCO <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Mosteiro%20da%20Batalha%2C%20Portugal'>&#128205; Mosteiro da Batalha</a><div class='nt'>Αν το κάνετε, κόψτε το Αβέιρο</div></div></li><li class='sure'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>Κοΐμπρα - Πανεπιστήμιο, φαγητό <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Universidade%20de%20Coimbra%2C%20Portugal'>&#128205; Universidade de Coimbra</a></div></li><li class='sure'><div class='tm'>Απόγευμα</div><div class='bd'><div class='wh'>Αβέιρο - σύντομη στάση στα κανάλια <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Aveiro%2C%20Portugal'>&#128205; Aveiro</a><div class='nt'>Κόβεται αν αργήσετε</div></div></li><li class='sure'><div class='tm'>Βράδυ</div><div class='bd'><div class='wh'>Camping → Uber → ποτό/φαγητό στη Ribeira <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Orbitur%20Angeiras%2C%20Portugal'>&#128205; Orbitur Angeiras</a></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;Ainda falta muito?&raquo;</div><div class='pr'>Αΐντα φάλτα μουίντου;</div><div class='gr'>Έχει πολύ ακόμα; (κάθε 20 λεπτά)</div></div><div class='box ticket'><h4>&#127903; Κρατήσεις &amp; εισιτήρια</h4><ul><li><b>Camping Πόρτο (Orbitur Angeiras) - 2 βράδια</b><br><span>Τώρα &middot; orbitur.pt &middot; ~30 € / βράδυ (κοινό) &euro;</span></li></ul></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Γεμάτη μέρα οδήγησης.</li><li>Τροχόσπιτο ΟΧΙ στο κέντρο του Πόρτο - στενοί δρόμοι, δεν υπάρχει πάρκινγκ.</li></ul></div></aside>
+  </div>
+  <div class='pager'><a class='prev' href='#day3'>&larr; Ημέρα 3</a><a href='#day5'>Ημέρα 5 &rarr;</a></div>
+</section><section class='day' id='day5'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(4,106,56,.88) 0%,rgba(4,106,56,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day5.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 5 &middot; Τετ 21/10</div><h2>Πόρτο</h2><div class='route'>Πόρτο με τα πόδια / μετρό</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 0 km</span><span>&#9201;&#65039; 0 ώρες οδήγηση</span><span>&#128719;&#65039; Πόρτο - camping Orbitur Angeiras</span><span>&#127381; Όχι - camping</span><span>&#127749; Δύση ~18:55</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Σταθμός S&#227;o Bento - azulejos <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Esta%C3%A7%C3%A3o%20de%20S%C3%A3o%20Bento%2C%20Porto%2C%20Portugal'>&#128205; Esta&#231;&#227;o de S&#227;o Bento, Porto</a><div class='nt'>Δωρεάν</div></div></li><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Καθεδρικός (S&#233;) - θέα <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=S%C3%A9%20do%20Porto%2C%20Portugal'>&#128205; S&#233; do Porto</a></div></li><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Torre dos Cl&#233;rigos + Livraria Lello <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Livraria%20Lello%2C%20Porto%2C%20Portugal'>&#128205; Livraria Lello, Porto</a><div class='nt'>Lello: κλεισμένη ώρα</div></div></li><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Capela das Almas, Mercado do Bolh&#227;o <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Capela%20das%20Almas%2C%20Porto%2C%20Portugal'>&#128205; Capela das Almas, Porto</a></div></li><li class='sure'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>Francesinha - Caf&#233; Santiago <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9%20Santiago%2C%20Porto%2C%20Portugal'>&#128205; Caf&#233; Santiago, Porto</a></div></li><li class='sure'><div class='tm'>Απόγευμα</div><div class='bd'><div class='wh'>Ribeira → γέφυρα Dom Lu&#237;s (πάνω κατάστρωμα) → κάβα στη Gaia <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Ponte%20Lu%C3%ADs%20I%2C%20Porto%2C%20Portugal'>&#128205; Ponte Lu&#237;s I, Porto</a></div></li><li class='sure'><div class='tm'>Ηλιοβασίλεμα</div><div class='bd'><div class='wh'>Jardim do Morro <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Jardim%20do%20Morro%2C%20Vila%20Nova%20de%20Gaia%2C%20Portugal'>&#128205; Jardim do Morro, Vila Nova de Gaia</a></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Βάρκα &#171;6 γεφυρών&#187; <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Cais%20da%20Ribeira%2C%20Porto%2C%20Portugal'>&#128205; Cais da Ribeira, Porto</a><div class='nt'>50&#39;</div></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Foz do Douro - εκεί που ο Douro βγαίνει στον ωκεανό <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Foz%20do%20Douro%2C%20Porto%2C%20Portugal'>&#128205; Foz do Douro, Porto</a><div class='nt'>Με τραμ 1</div></div></li><li class='sure'><div class='tm'>Βράδυ</div><div class='bd'><div class='wh'>Galeria de Paris / C&#226;ndido dos Reis - μπαρ <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Rua%20da%20Galeria%20de%20Paris%2C%20Porto%2C%20Portugal'>&#128205; Rua da Galeria de Paris, Porto</a></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;Uma francesinha e um Porto, se faz favor.&raquo;</div><div class='pr'>Ούμα φρανσεζίνια ι ουμ Πόρτου, σε φας φαβόρ.</div><div class='gr'>Μια francesinha κι ένα Πόρτο, παρακαλώ.</div></div><div class='box ticket'><h4>&#127903; Κρατήσεις &amp; εισιτήρια</h4><ul><li><b>Livraria Lello</b><br><span>Πρωί &middot; livrarialello.pt &middot; 10 &euro;</span></li><li><b>Torre dos Cl&#233;rigos</b><br><span>Μετά το Lello &middot; torredosclerigos.pt &middot; 10-15 &euro;</span></li><li><b>Κάβα Porto (Graham&#39;s / Taylor&#39;s / Sandeman / C&#225;lem)</b><br><span>Απόγευμα &middot; Site της κάβας &middot; 25 &euro;</span></li></ul></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Από το camping: Uber ή μετρό.</li></ul></div></aside>
+  </div>
+  <div class='pager'><a class='prev' href='#day4'>&larr; Ημέρα 4</a><a href='#day6'>Ημέρα 6 &rarr;</a></div>
+</section><section class='day' id='day6'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(200,16,46,.88) 0%,rgba(200,16,46,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day6.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 6 &middot; Πεμ 22/10</div><h2>Πόρτο → Μπράγκα → Γκιμαράες</h2><div class='route'>Πόρτο → Μπράγκα → Γκιμαράες (ή προς R&#233;gua)</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 80 km</span><span>&#9201;&#65039; 1,25 ώρες οδήγηση</span><span>&#128719;&#65039; Ανοιχτό: Γκιμαράες ή προς R&#233;gua</span><span>&#127381; Μάλλον camping - ASA αν πάτε προς R&#233;gua</span><span>&#127749; Δύση ~18:53</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Μπράγκα - Bom Jesus do Monte (σκάλες / τελεφερίκ) <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Bom%20Jesus%20do%20Monte%2C%20Braga%2C%20Portugal'>&#128205; Bom Jesus do Monte, Braga</a></div></li><li class='sure'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>Κέντρο Μπράγκα - φαγητό <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Braga%2C%20Portugal'>&#128205; Braga</a></div></li><li class='sure'><div class='tm'>Απόγευμα</div><div class='bd'><div class='wh'>Γκιμαράες - κάστρο, παλάτι, κέντρο <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Castelo%20de%20Guimar%C3%A3es%2C%20Portugal'>&#128205; Castelo de Guimar&#227;es</a></div></li><li class='opt'><div class='tm'>Βράδυ</div><div class='bd'><div class='wh'>Ύπνος Γκιμαράες ή πιο κοντά στη R&#233;gua <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Peso%20da%20R%C3%A9gua%2C%20Portugal'>&#128205; Peso da R&#233;gua</a><div class='nt'>Προς R&#233;gua: κερδίζετε ~1 ώρα αύριο</div></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;Aqui nasceu Portugal!&raquo;</div><div class='pr'>Ακί νασέου Πουρτουγκάλ!</div><div class='gr'>Εδώ γεννήθηκε η Πορτογαλία! (γραμμένο στο τείχος της Γκιμαράες)</div></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Μέρα ρεζέρβα - αν είστε κουρασμένοι, χαλαρά.</li></ul></div></aside>
+  </div>
+  <div class='pager'><a class='prev' href='#day5'>&larr; Ημέρα 5</a><a href='#day7'>Ημέρα 7 &rarr;</a></div>
+</section><section class='day' id='day7'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(4,106,56,.88) 0%,rgba(4,106,56,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day7.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 7 &middot; Παρ 23/10</div><h2>Douro - N222 → Pinh&#227;o</h2><div class='route'>Γκιμαράες → R&#233;gua → N222 → Pinh&#227;o</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 120 km</span><span>&#9201;&#65039; 2 ώρες οδήγηση</span><span>&#128719;&#65039; Pinh&#227;o</span><span>&#127381; Ναι - park4night ή quinta</span><span>&#127749; Δύση ~18:51</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>→ R&#233;gua (~1 ώρα 15&#39;) <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Peso%20da%20R%C3%A9gua%2C%20Portugal'>&#128205; Peso da R&#233;gua</a></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Miradouro S&#227;o Leonardo da Galafura ή Lamego <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Miradouro%20de%20S%C3%A3o%20Leonardo%20de%20Galafura%2C%20Portugal'>&#128205; Miradouro de S&#227;o Leonardo de Galafura</a><div class='nt'>+45&#39; έως 1 ώρα</div></div></li><li class='sure'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>N222 R&#233;gua → Pinh&#227;o με στάσεις για θέα <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=N222%20Peso%20da%20R%C3%A9gua%20Pinh%C3%A3o%2C%20Portugal'>&#128205; N222 Peso da R&#233;gua Pinh&#227;o</a><div class='nt'>Αργά, στροφές</div></div></li><li class='opt'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>Quinta do Seixo - γρήγορο tasting στο δρόμο <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Quinta%20do%20Seixo%2C%20Sandeman%2C%20Portugal'>&#128205; Quinta do Seixo, Sandeman</a></div></li><li class='sure'><div class='tm'>Απόγευμα</div><div class='bd'><div class='wh'>Pinh&#227;o: σταθμός με azulejos <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Esta%C3%A7%C3%A3o%20de%20Pinh%C3%A3o%2C%20Portugal'>&#128205; Esta&#231;&#227;o de Pinh&#227;o</a></div></li><li class='sure'><div class='tm'>Απόγευμα</div><div class='bd'><div class='wh'>Βάρκα rabelo στο ποτάμι <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Pinh%C3%A3o%2C%20Portugal'>&#128205; Pinh&#227;o</a></div></li><li class='sure'><div class='tm'>Απόγευμα</div><div class='bd'><div class='wh'>Tuk-tuk / ταξί στο Casal de Loivos <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Miradouro%20de%20Casal%20de%20Loivos%2C%20Portugal'>&#128205; Miradouro de Casal de Loivos</a><div class='nt'>ΟΧΙ με τροχόσπιτο</div></div></li><li class='sure'><div class='tm'>Απόγευμα</div><div class='bd'><div class='wh'>Wine tasting Bomfim Ή Ro&#234;da - με τα πόδια <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Quinta%20do%20Bomfim%2C%20Pinh%C3%A3o%2C%20Portugal'>&#128205; Quinta do Bomfim, Pinh&#227;o</a></div></li><li class='sure'><div class='tm'>Βράδυ</div><div class='bd'><div class='wh'>Ύπνος Pinh&#227;o <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Pinh%C3%A3o%2C%20Portugal'>&#128205; Pinh&#227;o</a></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;Sa&#250;de! S&#243; mais um copinho...&raquo;</div><div class='pr'>Σαούντ! Σο μάις ουμ κοπίνιου...</div><div class='gr'>Γεια μας! Μόνο ένα ποτηράκι ακόμα...</div></div><div class='box ticket'><h4>&#127903; Κρατήσεις &amp; εισιτήρια</h4><ul><li><b>Wine tasting Quinta do Bomfim Ή Ro&#234;da</b><br><span>Τώρα &middot; Bomfim: symington.com / Ro&#234;da: site της Croft &middot; 30 &euro;</span></li><li><b>Βάρκα rabelo</b><br><span>Επιτόπου &middot; Αποβάθρα Pinh&#227;o &middot; 15 &euro;</span></li></ul></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Τα οινοποιεία κλείνουν 17:00-18:00 και τον Οκτώβριο (τρύγος) γεμίζουν.</li><li>Μετά το tasting δεν οδηγούμε.</li></ul></div></aside>
+  </div>
+  <div class='pager'><a class='prev' href='#day6'>&larr; Ημέρα 6</a><a href='#day8'>Ημέρα 8 &rarr;</a></div>
+</section><section class='day' id='day8'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(200,16,46,.88) 0%,rgba(200,16,46,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day8.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 8 &middot; Σαβ 24/10</div><h2>Ράλι - Alto Rabag&#227;o / Montalegre</h2><div class='route'>Pinh&#227;o → Alto Rabag&#227;o / Montalegre / Boticas</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 130 km</span><span>&#9201;&#65039; 2 ώρες οδήγηση</span><span>&#128719;&#65039; Περιοχή Montalegre</span><span>&#127381; Ναι - εκτός ορίων Ger&#234;s (Natura)</span><span>&#127749; Δύση ~18:50</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Pinh&#227;o → Montalegre <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Montalegre%2C%20Portugal'>&#128205; Montalegre</a></div></li><li class='sure'><div class='tm'>Μέρα</div><div class='bd'><div class='wh'>Ράλι <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Barragem%20do%20Alto%20Rabag%C3%A3o%2C%20Portugal'>&#128205; Barragem do Alto Rabag&#227;o</a><div class='nt'>Επιβεβαιώστε σημείο και ώρες</div></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Κάστρο Montalegre <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Castelo%20de%20Montalegre%2C%20Portugal'>&#128205; Castelo de Montalegre</a></div></li><li class='sure'><div class='tm'>Βράδυ</div><div class='bd'><div class='wh'>Ύπνος περιοχή Montalegre <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Montalegre%2C%20Portugal'>&#128205; Montalegre</a></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;Acelera!&raquo;</div><div class='pr'>Ασελέρα!</div><div class='gr'>Πάτα το! (το φωνάζουν οι θεατές στο ράλι)</div></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Το βράδυ αλλάζει η ώρα: ρολόγια 1 ώρα πίσω - κερδίζετε 1 ώρα ύπνο.</li></ul></div></aside>
+  </div>
+  <div class='pager'><a class='prev' href='#day7'>&larr; Ημέρα 7</a><a href='#day9'>Ημέρα 9 &rarr;</a></div>
+</section><section class='day' id='day9'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(4,106,56,.88) 0%,rgba(4,106,56,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day9.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 9 &middot; Κυρ 25/10</div><h2>Λίμνη → Belmonte → Monsanto</h2><div class='route'>Λίμνη → (Ger&#234;s) → Belmonte → Monsanto</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 280 km</span><span>&#9201;&#65039; 3,75 ώρες οδήγηση</span><span>&#128719;&#65039; Monsanto - ASA στη βάση του χωριού</span><span>&#127381; Ναι - ASA δήμου</span><span>&#127749; Δύση ~17:50 (νέα ώρα)</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='opt'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Εθνικό Πάρκο Peneda-Ger&#234;s <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Parque%20Nacional%20da%20Peneda-Ger%C3%AAs%2C%20Portugal'>&#128205; Parque Nacional da Peneda-Ger&#234;s</a><div class='nt'>Μόνο αν ξυπνήσετε νωρίς - τότε κόψτε Belmonte</div></div></li><li class='sure'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>Belmonte - κάστρο, εβραϊκό μουσείο <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Belmonte%2C%20Portugal%2C%20Portugal'>&#128205; Belmonte, Portugal</a></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Serra da Estrela <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Serra%20da%20Estrela%2C%20Portugal'>&#128205; Serra da Estrela</a><div class='nt'>+1,5-2 ώρες, στροφές</div></div></li><li class='sure'><div class='tm'>~17:00</div><div class='bd'><div class='wh'>Monsanto - κάστρο στο ηλιοβασίλεμα <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Monsanto%2C%20Idanha-a-Nova%2C%20Portugal'>&#128205; Monsanto, Idanha-a-Nova</a><div class='nt'>Παρκάρετε στη βάση</div></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Idanha-a-Velha - ρωμαϊκό χωριό <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Idanha-a-Velha%2C%20Portugal'>&#128205; Idanha-a-Velha</a><div class='nt'>15&#39; από Monsanto</div></div></li><li class='sure'><div class='tm'>Βράδυ</div><div class='bd'><div class='wh'>Φαγητό Beira Baixa - τυριά, κατσικίσιο <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Monsanto%2C%20Idanha-a-Nova%2C%20Portugal'>&#128205; Monsanto, Idanha-a-Nova</a></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;Que pedra t&#227;o grande!&raquo;</div><div class='pr'>Κε πέδρα τάουν γκράντε!</div><div class='gr'>Τι τεράστια πέτρα!</div></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Η πιο κουραστική μέρα οδήγησης (~280 km, ορεινά).</li><li>Από σήμερα σκοτεινιάζει 1 ώρα νωρίτερα.</li></ul></div></aside>
+  </div>
+  <div class='pager'><a class='prev' href='#day8'>&larr; Ημέρα 8</a><a href='#day10'>Ημέρα 10 &rarr;</a></div>
+</section><section class='day' id='day10'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(200,16,46,.88) 0%,rgba(200,16,46,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day10.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 10 &middot; Δευ 26/10</div><h2>Monsanto → Marv&#227;o → Έβορα</h2><div class='route'>Monsanto → Castelo de Vide → Zebro → Marv&#227;o → Έβορα</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 240 km</span><span>&#9201;&#65039; 3 ώρες οδήγηση</span><span>&#128719;&#65039; Έβορα - ASA δήμου</span><span>&#127381; Ναι - ASA δήμου Έβορας</span><span>&#127749; Δύση ~17:50</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Castelo de Vide - λευκό χωριό <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Castelo%20de%20Vide%2C%20Portugal'>&#128205; Castelo de Vide</a></div></li><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Miradouro do Zebro - στάση για θέα <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Miradouro%20do%20Zebro%2C%20Portugal'>&#128205; Miradouro do Zebro</a><div class='nt'>15&#39;</div></div></li><li class='sure'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>Marv&#227;o - χωριό-κάστρο σε βράχο <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Marv%C3%A3o%2C%20Portugal'>&#128205; Marv&#227;o</a><div class='nt'>Τροχόσπιτο ΕΞΩ από τα τείχη</div></div></li><li class='sure'><div class='tm'>~16:00</div><div class='bd'><div class='wh'>Έβορα: Capela dos Ossos, Ρωμαϊκός ναός, πλατεία Giraldo <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Capela%20dos%20Ossos%2C%20%C3%89vora%2C%20Portugal'>&#128205; Capela dos Ossos, &#201;vora</a><div class='nt'>Κλείνουν 17:00-18:00</div></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Monsaraz - χωριό-κάστρο πάνω από λίμνη <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Monsaraz%2C%20Portugal'>&#128205; Monsaraz</a><div class='nt'>+2 ώρες</div></div></li><li class='sure'><div class='tm'>Βράδυ</div><div class='bd'><div class='wh'>Φαγητό Alentejo - carne de porco &#224; alentejana, κρασί <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=%C3%89vora%2C%20Portugal'>&#128205; &#201;vora</a></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;N&#243;s ossos que aqui estamos, pelos vossos esperamos.&raquo;</div><div class='pr'>Νος όσους κι ακί στάμους, πέλους βόσους σπεράμους.</div><div class='gr'>Εμείς τα κόκαλα που είμαστε εδώ, τα δικά σας περιμένουμε. (στην είσοδο της Capela dos Ossos)</div></div><div class='box ticket'><h4>&#127903; Κρατήσεις &amp; εισιτήρια</h4><ul><li><b>Capela dos Ossos</b><br><span>Επιτόπου &middot; Ταμείο &middot; 6 &euro;</span></li></ul></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Φτάστε στην Έβορα ως τις 16:00 - αύριο πρωί δεν θα προλάβετε.</li></ul></div></aside>
+  </div>
+  <div class='pager'><a class='prev' href='#day9'>&larr; Ημέρα 9</a><a href='#day11'>Ημέρα 11 &rarr;</a></div>
+</section><section class='day' id='day11'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(4,106,56,.88) 0%,rgba(4,106,56,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day11.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 11 &middot; Τρι 27/10</div><h2>Algarve → Alc&#225;cer do Sal</h2><div class='route'>Έβορα → Benagil → Λάγκος → Alc&#225;cer do Sal</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 460 km</span><span>&#9201;&#65039; 5 ώρες οδήγηση</span><span>&#128719;&#65039; Alc&#225;cer do Sal / Comporta</span><span>&#127381; Όχι - camping ή ASA (Alc&#225;cer έχει ASA δήμου)</span><span>&#127749; Δύση ~17:55</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='sure'><div class='tm'>07:30</div><div class='bd'><div class='wh'>Αναχώρηση Έβορα → Benagil (~2,5 ώρες) <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Praia%20de%20Benagil%2C%20Portugal'>&#128205; Praia de Benagil</a></div></li><li class='sure'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Βάρκα στη σπηλιά Benagil <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Praia%20de%20Benagil%2C%20Portugal'>&#128205; Praia de Benagil</a><div class='nt'>Αν ακυρωθεί → μονοπάτι Sete Vales</div></div></li><li class='opt'><div class='tm'>Πρωί</div><div class='bd'><div class='wh'>Μονοπάτι Sete Vales Suspensos <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Percurso%20dos%20Sete%20Vales%20Suspensos%2C%20Portugal'>&#128205; Percurso dos Sete Vales Suspensos</a><div class='nt'>Εναλλακτικό της βάρκας</div></div></li><li class='sure'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>Praia da Marinha - θέα από ψηλά <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Praia%20da%20Marinha%2C%20Portugal'>&#128205; Praia da Marinha</a></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Algar Seco <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Algar%20Seco%2C%20Carvoeiro%2C%20Portugal'>&#128205; Algar Seco, Carvoeiro</a></div></li><li class='sure'><div class='tm'>Μεσημέρι</div><div class='bd'><div class='wh'>Φαγητό Ferragudo ή Carvoeiro <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Ferragudo%2C%20Portugal'>&#128205; Ferragudo</a></div></li><li class='sure'><div class='tm'>Απόγευμα</div><div class='bd'><div class='wh'>Λάγκος: Praia do Camilo / Dona Ana <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Praia%20do%20Camilo%2C%20Lagos%2C%20Portugal'>&#128205; Praia do Camilo, Lagos</a></div></li><li class='sure'><div class='tm'>~17:30</div><div class='bd'><div class='wh'>Ponta da Piedade - ηλιοβασίλεμα <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Ponta%20da%20Piedade%2C%20Lagos%2C%20Portugal'>&#128205; Ponta da Piedade, Lagos</a></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Sagres / Cabo de S&#227;o Vicente αντί Ponta da Piedade <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Cabo%20de%20S%C3%A3o%20Vicente%2C%20Portugal'>&#128205; Cabo de S&#227;o Vicente</a></div></li><li class='sure'><div class='tm'>Βράδυ</div><div class='bd'><div class='wh'>Φαγητό παλιά πόλη Λάγκος - cataplana <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Lagos%2C%20Portugal%2C%20Portugal'>&#128205; Lagos, Portugal</a></div></li><li class='sure'><div class='tm'>~20:00</div><div class='bd'><div class='wh'>Οδήγηση ~2 ώρες → Alc&#225;cer do Sal <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Alc%C3%A1cer%20do%20Sal%2C%20Portugal'>&#128205; Alc&#225;cer do Sal</a><div class='nt'>Εναλλάξτε οδηγό</div></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;Vamos &#224; praia!&raquo;</div><div class='pr'>Βάμους α πράια!</div><div class='gr'>Πάμε παραλία!</div></div><div class='box ticket'><h4>&#127903; Κρατήσεις &amp; εισιτήρια</h4><ul><li><b>Βάρκα Benagil</b><br><span>Τώρα &middot; GetYourGuide ή εταιρεία στο Benagil / Portim&#227;o &middot; 30 &euro;</span></li><li><b>Ύπνος Alc&#225;cer do Sal</b><br><span>Μέρα πριν &middot; park4night (ASA δήμου) &middot; - &euro;</span></li></ul></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Η πιο βαριά μέρα. Ελέγξτε καιρό/κύμα το προηγούμενο βράδυ (Windy).</li><li>A22: μόνο ηλεκτρονικά διόδια - Via Verde.</li></ul></div></aside>
+  </div>
+  <div class='pager'><a class='prev' href='#day10'>&larr; Ημέρα 10</a><a href='#day12'>Ημέρα 12 &rarr;</a></div>
+</section><section class='day' id='day12'>
+  <div class='banner' style='background:linear-gradient(90deg,rgba(200,16,46,.88) 0%,rgba(200,16,46,.55) 45%,rgba(0,0,0,.05) 100%),url('img/day12.jpg') center/cover'>
+    <div class='tiles'></div>
+    <div class='btxt'><div class='dnum'>Ημέρα 12 &middot; Τετ 28/10</div><h2>Παράδοση → (Σίντρα) → πτήση</h2><div class='route'>Alc&#225;cer → McRent → (Σίντρα) → αεροδρόμιο</div></div>
+  </div>
+  <div class='flag'></div>
+  <div class='facts'>
+    <span>&#128656; 130 km</span><span>&#9201;&#65039; 1,25 ώρες οδήγηση</span><span>&#128719;&#65039; - (πτήση ~20:00)</span><span>&#127381; -</span><span>&#127749; Δύση ~17:50</span>
+  </div>
+  <div class='cols'>
+    <div><h3>Το πρόγραμμα</h3><ol class='tl'><li class='sure'><div class='tm'>07:30</div><div class='bd'><div class='wh'>Πρωινό, μάζεμα, καθάρισμα <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Alc%C3%A1cer%20do%20Sal%2C%20Portugal'>&#128205; Alc&#225;cer do Sal</a></div></li><li class='sure'><div class='tm'>08:00</div><div class='bd'><div class='wh'>Αναχώρηση → McRent (~1 ώρα 15&#39;) <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=McRent%20Lisboa%2C%20Sintra%2C%20Portugal'>&#128205; McRent Lisboa, Sintra</a><div class='nt'>Κίνηση στη γέφυρα</div></div></li><li class='sure'><div class='tm'>Πριν</div><div class='bd'><div class='wh'>Γέμισμα ντεπόζιτου + άδειασμα λυμάτων <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Sintra%2C%20Portugal'>&#128205; Sintra</a><div class='nt'>Αλλιώς χρεώσεις</div></div></li><li class='sure'><div class='tm'>10:00</div><div class='bd'><div class='wh'>Παράδοση τροχόσπιτου <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=McRent%20Lisboa%2C%20Sintra%2C%20Portugal'>&#128205; McRent Lisboa, Sintra</a></div></li><li class='sure'><div class='tm'>Μετά</div><div class='bd'><div class='wh'>Βαλίτσες: McRent ή θυρίδα (Bounce / LuggageHero) <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Sintra%2C%20Portugal'>&#128205; Sintra</a></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Σίντρα - Quinta da Regaleira (ή Pena) <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Quinta%20da%20Regaleira%2C%20Sintra%2C%20Portugal'>&#128205; Quinta da Regaleira, Sintra</a><div class='nt'>Αν δεν είστε κουρασμένοι</div></div></li><li class='opt'><div class='tm'>Προαιρ.</div><div class='bd'><div class='wh'>Ή απλά φαγητό χαλαρά: Σίντρα / Cascais / Ericeira <span class='chip'>Προαιρετικό</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Cascais%2C%20Portugal'>&#128205; Cascais</a></div></li><li class='sure'><div class='tm'>~17:00</div><div class='bd'><div class='wh'>Uber για αεροδρόμιο (~40&#39;) <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Aeroporto%20de%20Lisboa%2C%20Portugal'>&#128205; Aeroporto de Lisboa</a></div></li><li class='sure'><div class='tm'>~18:00</div><div class='bd'><div class='wh'>Αεροδρόμιο - πτήση ~20:00 <span class='chip'>Σίγουρο</span></div><a class='pin' target='_blank' href='https://www.google.com/maps/search/?api=1&amp;query=Aeroporto%20de%20Lisboa%2C%20Portugal'>&#128205; Aeroporto de Lisboa</a></div></li></ol></div>
+    <aside><div class='box phrase'><h4>&#128483;&#65039; Φράση της ημέρας</h4><div class='pt'>&laquo;Obrigado, Portugal! At&#233; &#224; pr&#243;xima!&raquo;</div><div class='pr'>Ομπριγκάντου, Πουρτουγκάλ! Ατέ α πρόσιμα!</div><div class='gr'>Ευχαριστούμε, Πορτογαλία! Ως την επόμενη!</div></div><div class='box ticket'><h4>&#127903; Κρατήσεις &amp; εισιτήρια</h4><ul><li><b>Quinta da Regaleira</b><br><span>Αν πάτε &middot; Site Regaleira (online) &middot; 12 &euro;</span></li></ul></div><div class='box warn'><h4>&#9888;&#65039; Καλό να ξέρετε</h4><ul><li>Πριν φύγετε από τη McRent, φωτογραφίες του τροχόσπιτου (κατάσταση, ντεπόζιτο, km).</li></ul></div></aside>
+  </div>
+  <div class='pager'><a class='prev' href='#day11'>&larr; Ημέρα 11</a><a href='#summary'>Σύνοψη &rarr;</a></div>
+</section>
+
+<section class='panel' id='summary'><h2>&#128506;&#65039; Το ταξίδι με μια ματιά</h2>
+<table><thead><tr><th>#</th><th>Ημερομηνία</th><th>Περιοχή</th><th>Km</th><th>Ώρες</th><th>Ύπνος</th><th>Κύρια σημεία</th></tr></thead><tbody><tr><td class='n'>1</td><td>Σαβ 17/10</td><td><a href='#day1'>Λισαβόνα</a></td><td>0</td><td>0</td><td>Δωμάτιο Rua da Luz Soriano 27 (Bairro Alto)</td><td>Baixa, Carmo, Bairro Alto, fado</td></tr><tr><td class='n'>2</td><td>Κυρ 18/10</td><td><a href='#day2'>Λισαβόνα - Μπελέμ</a></td><td>0</td><td>0</td><td>Δωμάτιο Rua da Luz Soriano 27 (Bairro Alto)</td><td>LX Factory, Μπελέμ, Κάστρο, Pr&#237;ncipe Real</td></tr><tr><td class='n'>3</td><td>Δευ 19/10</td><td><a href='#day3'>Λισαβόνα → McRent → Cabo da Roca → Ναζαρέ</a></td><td>100</td><td>1,75</td><td>Ναζαρέ (S&#237;tio / Φάρος)</td><td>Τραμ 28, Alfama, παραλαβή τροχόσπιτου, Cabo da Roca</td></tr><tr><td class='n'>4</td><td>Τρι 20/10</td><td><a href='#day4'>Ναζαρέ → Κοΐμπρα → Αβέιρο → Πόρτο</a></td><td>240</td><td>3,5</td><td>Πόρτο - camping Orbitur Angeiras</td><td>Φάρος Ναζαρέ, Κοΐμπρα, Αβέιρο</td></tr><tr><td class='n'>5</td><td>Τετ 21/10</td><td><a href='#day5'>Πόρτο</a></td><td>0</td><td>0</td><td>Πόρτο - camping Orbitur Angeiras</td><td>S&#227;o Bento, Lello, Ribeira, κάβες Gaia</td></tr><tr><td class='n'>6</td><td>Πεμ 22/10</td><td><a href='#day6'>Πόρτο → Μπράγκα → Γκιμαράες</a></td><td>80</td><td>1,25</td><td>Ανοιχτό: Γκιμαράες ή προς R&#233;gua</td><td>Bom Jesus, Γκιμαράες</td></tr><tr><td class='n'>7</td><td>Παρ 23/10</td><td><a href='#day7'>Douro - N222 → Pinh&#227;o</a></td><td>120</td><td>2</td><td>Pinh&#227;o</td><td>N222, Pinh&#227;o, βάρκα, wine tasting</td></tr><tr><td class='n'>8</td><td>Σαβ 24/10</td><td><a href='#day8'>Ράλι - Alto Rabag&#227;o / Montalegre</a></td><td>130</td><td>2</td><td>Περιοχή Montalegre</td><td>Ράλι</td></tr><tr><td class='n'>9</td><td>Κυρ 25/10</td><td><a href='#day9'>Λίμνη → Belmonte → Monsanto</a></td><td>280</td><td>3,75</td><td>Monsanto - ASA στη βάση του χωριού</td><td>Belmonte, Monsanto</td></tr><tr><td class='n'>10</td><td>Δευ 26/10</td><td><a href='#day10'>Monsanto → Marv&#227;o → Έβορα</a></td><td>240</td><td>3</td><td>Έβορα - ASA δήμου</td><td>Castelo de Vide, Marv&#227;o, Έβορα</td></tr><tr><td class='n'>11</td><td>Τρι 27/10</td><td><a href='#day11'>Algarve → Alc&#225;cer do Sal</a></td><td>460</td><td>5</td><td>Alc&#225;cer do Sal / Comporta</td><td>Benagil, Marinha, Ponta da Piedade, Λάγκος</td></tr><tr><td class='n'>12</td><td>Τετ 28/10</td><td><a href='#day12'>Παράδοση → (Σίντρα) → πτήση</a></td><td>130</td><td>1,25</td><td>- (πτήση ~20:00)</td><td>Παράδοση 10:00, Σίντρα ή φαγητό, αεροδρόμιο 18:00</td></tr></tbody></table>
+</section>
+
+<section class='panel' id='cost'><h2>&#128182; Κόστος αναλυτικά</h2><p class='cintro'>Χωρίς πτήσεις, τροχόσπιτο και δωμάτιο Λισαβόνας. Πρόχειρη εκτίμηση.</p><div class='kpis'><div class='kpi main'><span>Ανά άτομο (σίγουρα)</span><b>1.023 &euro;</b></div><div class='kpi'><span>Με όλα τα προαιρετικά</span><b>1.087 &euro;</b></div><div class='kpi'><span>Σύνολο για 3 άτομα</span><b>3.070 &euro;</b></div><div class='kpi'><span>Κοινά / Ατομικά</span><b>817 &euro;</b><small>+ 751 &euro; ατομικά</small></div></div><div class='cgrid'><div class='cbox'><h3>&#128656; Κοινά έξοδα <small>(μοιράζονται στους 3)</small></h3><div class='ci'><div class='cl'><div class='ct'>Καύσιμα (diesel, λίτρα) </div><span class='qty'>210 &times; 1,65 &euro;</span><div class='cn'>~1.750 km &#215; ~12 L/100 km</div></div><div class='ca'>347 &euro;<span class='per'>&asymp; 116 &euro; / άτομο</span></div></div><div class='ci'><div class='cl'><div class='ct'>Διόδια </div><div class='cn'>Τροχόσπιτο = κατηγορία 2. A22 μόνο Via Verde</div></div><div class='ca'>150 &euro;<span class='per'>&asymp; 50 &euro; / άτομο</span></div></div><div class='ci'><div class='cl'><div class='ct'>Camping / χώροι αυτοκινούμενων (βράδια) </div><span class='qty'>5 &times; 30 &euro;</span><div class='cn'>Camping 5 βράδια + 4 δωρεάν (Pinh&#227;o, Montalegre, Monsanto, Έβορα). Κανόνες: max 48 ώρες/δήμο, όχι τέντα/καρέκλες έξω, όχι σε Natura/ακτή.</div></div><div class='ca'>150 &euro;<span class='per'>&asymp; 50 &euro; / άτομο</span></div></div><div class='ci'><div class='cl'><div class='ct'>Uber / ταξί / tuk-tuk </div><div class='cn'>Λισαβόνα→McRent, Πόρτο, Casal de Loivos + Uber McRent → Σίντρα → αεροδρόμιο (~70 €)</div></div><div class='ca'>170 &euro;<span class='per'>&asymp; 57 &euro; / άτομο</span></div></div><div class='ci opt'><div class='cl'><div class='ct'>Επιπλέον καύσιμα παρακάμψεων <span class='chip'>Προαιρετικό</span></div><div class='cn'>Ger&#234;s, Serra da Estrela, Monsaraz</div></div><div class='ca'>40 &euro;<span class='per'>&asymp; 13 &euro; / άτομο</span></div></div></div><div class='cbox'><h3>&#127915; Ανά άτομο</h3><div class='ci'><div class='cl'><div class='ct'>Φαγητό (μέρες) </div><span class='qty'>12 &times; 40 &euro;</span><div class='cn'>Μισά στο τροχόσπιτο, μισά έξω</div></div><div class='ca'>480 &euro;</div></div><div class='ci'><div class='cl'><div class='ct'>Ποτά / βράδια </div><div class='cn'>Λισαβόνα, Πόρτο, Λάγκος</div></div><div class='ca'>100 &euro;</div></div><div class='ci'><div class='cl'><div class='ct'>Μονή Ιερώνυμου + Πύργος Μπελέμ </div></div><div class='ca'>25 &euro;</div></div><div class='ci'><div class='cl'><div class='ct'>Livraria Lello + Torre dos Cl&#233;rigos </div><div class='cn'>Online εισιτήρια</div></div><div class='ca'>25 &euro;</div></div><div class='ci'><div class='cl'><div class='ct'>Κάβα Porto στη Gaia (ξενάγηση + γευσιγνωσία) </div></div><div class='ca'>25 &euro;</div></div><div class='ci'><div class='cl'><div class='ct'>Wine tasting Pinh&#227;o - Bomfim Ή Ro&#234;da (ένα) </div><div class='cn'>Με τα πόδια από Pinh&#227;o. Κλείστε από πριν</div></div><div class='ca'>30 &euro;</div></div><div class='ci opt'><div class='cl'><div class='ct'>Quinta do Seixo (στάση στον N222) <span class='chip'>Προαιρετικό</span></div><div class='cn'>Γρήγορη γευσιγνωσία στο δρόμο</div></div><div class='ca'>20 &euro;</div></div><div class='ci'><div class='cl'><div class='ct'>Βάρκα rabelo (Pinh&#227;o) </div></div><div class='ca'>15 &euro;</div></div><div class='ci'><div class='cl'><div class='ct'>Capela dos Ossos (Έβορα) </div></div><div class='ca'>6 &euro;</div></div><div class='ci'><div class='cl'><div class='ct'>Βάρκα Benagil </div><div class='cn'>Αν βγει (καιρός)</div></div><div class='ca'>30 &euro;</div></div><div class='ci'><div class='cl'><div class='ct'>Τραμ 28 και λοιπά εισιτήρια </div></div><div class='ca'>15 &euro;</div></div><div class='ci opt'><div class='cl'><div class='ct'>Βάρκα 6 γεφυρών (Πόρτο) <span class='chip'>Προαιρετικό</span></div></div><div class='ca'>18 &euro;</div></div><div class='ci opt'><div class='cl'><div class='ct'>Σίντρα - Quinta da Regaleira (ή Pena) <span class='chip'>Προαιρετικό</span></div><div class='cn'>28/10</div></div><div class='ca'>12 &euro;</div></div></div></div><p class='cfoot'>Τιμές από γενικές γνώσεις, όχι επιβεβαιωμένες για το 2026.</p></section>
+
+<section class='panel' id='general'><h2>&#129517; Πρακτικές πληροφορίες</h2><div class='ggrid'><div class='gcard'><h4>Κανόνες ύπνου με τροχόσπιτο</h4><dl><dt>Δωρεάν</dt><dd>Έως 48 ώρες ανά δήμο. Όχι τέντα / καρέκλες έξω, όχι άδειασμα νερών. Όχι σε Natura και στην ακτή.</dd><dt>Algarve / ακτή</dt><dd>Αυστηροί έλεγχοι GNR - μόνο camping ή ASA. Πρόστιμα ~60-600 €.</dd><dt>Εφαρμογές</dt><dd>park4night (δωρεάν spots / ASA), CamperContact</dd></dl></div><div class='gcard'><h4>Οδήγηση</h4><dl><dt>Σύνολο</dt><dd>~1.780 km, ~23,5 ώρες οδήγησης</dd><dt>Διόδια</dt><dd>Via Verde από τη McRent - απαραίτητο για την A22 (Algarve)</dd><dt>Βαριές μέρες</dt><dd>Κυρ 25 (Ger&#234;s μόνο αν ξυπνήσετε νωρίς), Τρι 27 (εναλλαγή οδηγού το βράδυ)</dd></dl></div><div class='gcard'><h4>Ώρα</h4><dl><dt>Αλλαγή ώρας</dt><dd>Νύχτα Σαβ 24 → Κυρ 25: ρολόγια 1 ώρα πίσω. Δύση ~19:00 πριν, ~17:50 μετά.</dd></dl></div><div class='gcard'><h4>Κόστος (εκτίμηση)</h4><dl><dt>Ανά άτομο - σίγουρα</dt><dd>~1.023 €</dd><dt>Με όλα τα προαιρετικά</dt><dd>~1.087 €</dd><dt>Να προσθέσετε</dt><dd>Χρεώσεις McRent (κιτ, γκάζι, καθάρισμα) 50-150 €, parking ~20-30 €, θυρίδες ~10 €/άτομο → ρεαλιστικά ~1.100 €/άτομο</dd><dt>Δεν περιλαμβάνει</dt><dd>Πτήσεις, ενοικίαση τροχόσπιτου, δωμάτιο Λισαβόνας</dd><dt>Αναλυτικά</dt><dd>Στο αρχείο &#171;Portugal 2026 - Plano.xlsx&#187;, φύλλο Κόστος</dd></dl></div><div class='gcard'><h4>Εφαρμογές για το κινητό</h4><dl><dt>Λίστα</dt><dd>park4night, Uber / Bolt, Windy, Google Maps με offline χάρτη Πορτογαλίας</dd></dl></div></div></section>
+
+<section class='panel' id='phrases'><h2>&#128483;&#65039; Μίνι λεξικό επιβίωσης</h2>
+<table><thead><tr><th>Πορτογαλικά</th><th>Προφορά</th><th>Τι σημαίνει</th></tr></thead><tbody><tr><td class='ptc'>Obrigado / Obrigada</td><td class='prc'>Ομπριγκάντου / Ομπριγκάντα</td><td>Ευχαριστώ (λέει άντρας / γυναίκα)</td></tr><tr><td class='ptc'>Bom dia / Boa noite</td><td class='prc'>Μπομ ντία / Μπόα νόιτ</td><td>Καλημέρα / Καληνύχτα</td></tr><tr><td class='ptc'>A conta, por favor</td><td class='prc'>Α κόντα, πουρ φαβόρ</td><td>Τον λογαριασμό, παρακαλώ</td></tr><tr><td class='ptc'>Onde &#233; a casa de banho?</td><td class='prc'>Όντ&#39; έ α κάζα ντε μπάνιου;</td><td>Πού είναι η τουαλέτα;</td></tr><tr><td class='ptc'>Desculpe</td><td class='prc'>Ντεσκούλπ</td><td>Συγγνώμη</td></tr><tr><td class='ptc'>N&#227;o percebo nada</td><td class='prc'>Νάουν περσέμπου νάντα</td><td>Δεν καταλαβαίνω τίποτα</td></tr><tr><td class='ptc'>Mais uma rodada!</td><td class='prc'>Μάις ούμα ροντάντα!</td><td>Άλλη μια γύρα!</td></tr><tr><td class='ptc'>Fixe!</td><td class='prc'>Φις!</td><td>Τέλειο! (αργκό)</td></tr></tbody></table>
+</section>
+</main>
+
+<footer><div class='tiles'></div><h2>Boa viagem!</h2><p>Καλό ταξίδι &middot; &#128656; 17&ndash;28 Οκτωβρίου 2026</p></footer>
+<script>
+document.body.classList.add('js');
+function show(){
+  var id=(location.hash||'#day1').slice(1), el=document.getElementById(id);
+  if(!el||!(el.classList.contains('day')||el.classList.contains('panel'))){id='day1';el=document.getElementById(id);}
+  document.querySelectorAll('.day,.panel').forEach(function(s){s.classList.toggle('show',s===el);});
+  document.querySelectorAll('.days a,.links a').forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id);});
+  var on=document.querySelector('.days a.on'); if(on) on.scrollIntoView({block:'nearest',inline:'center'});
+}
+window.addEventListener('hashchange',function(){show();var m=document.querySelector('main');window.scrollTo({top:m.offsetTop-90,behavior:'smooth'});});
+show();
+</script>
+</body></html>
