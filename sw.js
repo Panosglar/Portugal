@@ -1,5 +1,5 @@
 // Offline cache for Portugal 2026
-var C = 'pt26-v1';
+var C = 'pt26-v2';
 var FILES = ['./', 'index.html',
   'img/hero.jpg', 'img/day1.jpg', 'img/day2.jpg', 'img/day3.jpg', 'img/day4.jpg', 'img/day5.jpg', 'img/day6.jpg',
   'img/day7.jpg', 'img/day8.jpg', 'img/day9.jpg', 'img/day10.jpg', 'img/day11.jpg', 'img/day12.jpg'];
@@ -11,6 +11,7 @@ self.addEventListener('activate', function (e) { e.waitUntil(self.clients.claim(
 self.addEventListener('fetch', function (e) {
   var req = e.request;
   if (req.method !== 'GET') return;
+  if (new URL(req.url).origin !== self.location.origin) return;
   var isPage = req.mode === 'navigate' || /index\.html$|\/$/.test(new URL(req.url).pathname);
   if (isPage) {
     // network first so updates show; fallback to cache when offline

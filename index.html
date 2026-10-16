@@ -401,7 +401,7 @@ li.done .bd{opacity:.55}li.done .wh{text-decoration:line-through}
 </section>
 
 <section class='panel' id='beer'><h2>&#127866; Μπυρόμετρο</h2>
-<p class='cintro'>Πάτα +1 σε κάθε μπύρα. Μετράει μόνο σε αυτό το κινητό, οπότε έναν μετρητή κρατάει ένας (ο πιο νηφάλιος, αν υπάρχει).</p>
+<p class='cintro'>Πάτα +1 σε κάθε μπύρα. Μετράει ζωντανά σε όλα τα κινητά: όποιος πατήσει +1, το βλέπουν όλοι.</p>
 <div class='beers'>
   <div class='bc' data-n='Ευριπίδης'><h3>Ευριπίδης</h3><div class='bn'>0</div><div class='bm'></div><button class='bp'>+1 &#127866;</button><button class='bmn'>&minus;1</button></div>
   <div class='bc' data-n='Θανάαας'><h3>Θανάαας</h3><div class='bn'>0</div><div class='bm'></div><button class='bp'>+1 &#127866;</button><button class='bmn'>&minus;1</button></div>
@@ -449,31 +449,52 @@ li.done .bd{opacity:.55}li.done .wh{text-decoration:line-through}
   };
 })();
 (function(){
+  var DB='https://portugal2026-bd379-default-rtdb.europe-west1.firebasedatabase.app';
+  var state={checks:{},beer:{}};
+  try{var s=JSON.parse(localStorage.getItem('pt26-state')||'null');if(s){state.checks=s.checks||{};state.beer=s.beer||{};}}catch(e){}
+  function save(){try{localStorage.setItem('pt26-state',JSON.stringify(state));}catch(e){}}
+  function ek(k){return k.replace(/[.#$\[\]\/]/g,'_');}
   // checklist
   function sync(cb){var li=cb.closest('li');if(li)li.classList.toggle('done',cb.checked);}
+  function renderChecks(){document.querySelectorAll('input[data-k]').forEach(function(cb){cb.checked=!!state.checks[ek(cb.dataset.k)];sync(cb);});}
   document.querySelectorAll('input[data-k]').forEach(function(cb){
-    try{cb.checked=localStorage.getItem('pt26-'+cb.dataset.k)==='1';}catch(e){}
-    sync(cb);
-    cb.addEventListener('change',function(){try{localStorage.setItem('pt26-'+cb.dataset.k,cb.checked?'1':'0');}catch(e){}sync(cb);});
+    cb.addEventListener('change',function(){
+      var k=ek(cb.dataset.k);state.checks[k]=cb.checked;save();sync(cb);
+      fetch(DB+'/checks/'+k+'.json',{method:'PUT',body:JSON.stringify(cb.checked)}).catch(function(){});
+    });
   });
   // beer meter
   var msgs=[[0,'Νηφάλιος. Ύποπτο.'],[1,'Ζέσταμα.'],[4,'Ωραία πάμε.'],[8,'Ο Γλάρος θα ήταν περήφανος.'],[13,'Estou com uma ressaca αύριο.'],[20,'Θρύλος της Πορτογαλίας.']];
-  function upd(){
+  function renderBeer(){
     var tot=0,best=null,bv=-1;
     document.querySelectorAll('.bc').forEach(function(c){
-      var n=c.dataset.n,v=0;try{v=parseInt(localStorage.getItem('pt26-beer-'+n)||'0',10);}catch(e){}
-      c.querySelector('.bn').textContent=v;tot+=v;if(v>bv){bv=v;best=n;}
+      var v=Math.max(0,parseInt(state.beer[c.dataset.n]||0,10)||0);
+      c.querySelector('.bn').textContent=v;tot+=v;if(v>bv){bv=v;best=c.dataset.n;}
       var m='';msgs.forEach(function(x){if(v>=x[0])m=x[1];});c.querySelector('.bm').textContent=m;
     });
     document.getElementById('btot').textContent='Σύνολο: '+tot+' μπύρες'+(tot?' · Πρώτος: '+best:'');
   }
   document.querySelectorAll('.bc').forEach(function(c){
-    var key='pt26-beer-'+c.dataset.n;
-    function add(d){var v=0;try{v=parseInt(localStorage.getItem(key)||'0',10);}catch(e){}v=Math.max(0,v+d);try{localStorage.setItem(key,v);}catch(e){}upd();}
+    var n=c.dataset.n;
+    function add(d){
+      var cur=parseInt(state.beer[n]||0,10)||0;if(d<0&&cur<=0)return;
+      state.beer[n]=cur+d;save();renderBeer();
+      fetch(DB+'/beer/'+encodeURIComponent(n)+'.json',{method:'PUT',body:JSON.stringify({'.sv':{'increment':d}})}).catch(function(){});
+    }
     c.querySelector('.bp').onclick=function(){add(1);};
     c.querySelector('.bmn').onclick=function(){add(-1);};
   });
-  upd();
+  function apply(data){
+    data=data||{};state.checks=data.checks||{};state.beer=data.beer||{};save();renderChecks();renderBeer();
+  }
+  function pull(){fetch(DB+'/.json').then(function(r){return r.json();}).then(apply).catch(function(){});}
+  renderChecks();renderBeer();pull();
+  // live updates
+  try{
+    var es=new EventSource(DB+'/.json');
+    es.addEventListener('put',pull);es.addEventListener('patch',pull);
+  }catch(e){setInterval(pull,5000);}
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)pull();});
   // offline
   if('serviceWorker' in navigator && location.protocol==='https:'){navigator.serviceWorker.register('sw.js').catch(function(){});}
 })();
